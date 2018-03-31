@@ -396,13 +396,13 @@ function s:AddOrUpdateEmberImport(token)
 endfunction
 
 " RunEmImport {{{1
-function RunEmImport(key)
+function emberimports#run(key)
   let token = empty(a:key) ? expand('<cword>') : a:key
   call s:AddOrUpdateEmberImport(token)
 endfunction
 
 " EmImportComp {{{1
-function EmImportComp(ArgLead, CmdLine, CursorPos)
+function emberimports#complete(ArgLead, CmdLine, CursorPos)
   return filter(keys(g:vim_ember_import_definitions), "v:val =~# '^" . a:ArgLead . "'")
 endfunction
 

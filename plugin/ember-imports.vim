@@ -24,9 +24,9 @@ if !exists('g:vim_ember_imports_map')
 endif
 
 if !empty(g:vim_ember_imports_map)
-  execute "nnoremap " . g:vim_ember_imports_map . " :call RunEmImport('')<Cr>"
+  execute "nnoremap " . g:vim_ember_imports_map . " :call emberimports#run('')<Cr>"
 endif
 
-command -nargs=? -complete=customlist,EmImportComp Emimport call RunEmImport(<q-args>)
+command -nargs=? -complete=customlist,emberimports#complete Emimport call emberimports#run(<q-args>)
 
 " vim:sw=2 ts=2 et fdm=marker
