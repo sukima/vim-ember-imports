@@ -206,7 +206,7 @@ let g:vim_ember_import_definitions = {
       \ }
 
 " ParseImportAST {{{1
-function s:ParseImportAST(inputLine)
+function! s:ParseImportAST(inputLine)
   let line = a:inputLine
   let line = substitute(line, '\v\{', 'OpenBracket', '')
   let line = substitute(line, '\v\}', 'CloseBracket', '')
@@ -272,13 +272,13 @@ function s:ParseImportAST(inputLine)
 endfunction
 
 " IndentChars {{{1
-function s:IndentChars(num)
+function! s:IndentChars(num)
   let identStr = &expandtab ? repeat(' ', shiftwidth()) : '\t'
   return repeat(identStr, a:num)
 endfunction
 
 " RenderImport {{{1
-function s:RenderImport(ast, from)
+function! s:RenderImport(ast, from)
   let defaultPart = v:null
   let destructureParts = []
   for token in a:ast
@@ -332,7 +332,7 @@ function s:RenderImport(ast, from)
 endfunction
 
 " DefinitionForToken {{{1
-function s:DefinitionForToken(token)
+function! s:DefinitionForToken(token)
   if !has_key(g:vim_ember_import_definitions, a:token)
     throw 'Unknown Ember keyword ' . a:token
   endif
@@ -345,27 +345,27 @@ function s:DefinitionForToken(token)
 endfunction
 
 " AppendEmberImport {{{1
-function s:AppendEmberImport(pos, definition)
+function! s:AppendEmberImport(pos, definition)
   let importStr = s:RenderImport([a:definition], a:definition.from)
   call append(a:pos, importStr)
 endfunction
 
 " UpdateEmberImport {{{1
-function s:UpdateEmberImport(pos, lines, definition)
+function! s:UpdateEmberImport(pos, lines, definition)
   let ast = s:ParseImportAST(a:lines) + [a:definition]
   let importStr = s:RenderImport(ast, a:definition.from)
   call append(a:pos, importStr)
 endfunction
 
 " FindLastImport {{{1
-function s:FindLastImport()
+function! s:FindLastImport()
   call cursor(line('$'), 0)
   let pos = search('\v^<import>', 'bcW')
   return pos > 0 ? search('\v<from>', 'cW') : 0
 endfunction
 
 " GetImportLines {{{1
-function s:GetImportLines()
+function! s:GetImportLines()
   let start = line('.')
   let end = start
   let lines = getline(start)
@@ -377,7 +377,7 @@ function s:GetImportLines()
 endfunction
 
 " AddOrUpdateEmberImport {{{1
-function s:AddOrUpdateEmberImport(token)
+function! s:AddOrUpdateEmberImport(token)
   let definition = s:DefinitionForToken(a:token)
   call setpos("''", getcurpos())
   let loc = search('\vfrom\s[''"]' . escape(definition.from, '-/@') . '[''"]', 'bcwz')
@@ -395,14 +395,14 @@ function s:AddOrUpdateEmberImport(token)
   call setpos('.', getpos("''"))
 endfunction
 
-" RunEmImport {{{1
-function emberimports#run(key)
+" emberimports#run {{{1
+function! emberimports#run(key)
   let token = empty(a:key) ? expand('<cword>') : a:key
   call s:AddOrUpdateEmberImport(token)
 endfunction
 
-" EmImportComp {{{1
-function emberimports#complete(ArgLead, CmdLine, CursorPos)
+" emberimports#complete {{{1
+function! emberimports#complete(ArgLead, CmdLine, CursorPos)
   return filter(keys(g:vim_ember_import_definitions), "v:val =~# '^" . a:ArgLead . "'")
 endfunction
 
