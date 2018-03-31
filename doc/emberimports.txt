@@ -12,7 +12,7 @@ CONTENTS
 ==============================================================================
 1. Intro                                                   *EmberImportsIntro*
 
-Keep your import statements in sync with your code but appending or updating
+Keep your import statements in sync with your code by appending or updating
 statements with Ember keywords.
 
 The intended audience for this are Ember developers who use Vim and want to
