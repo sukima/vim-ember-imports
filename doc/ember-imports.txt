@@ -1,0 +1,126 @@
+*ember-imports.txt*                    Easily Maintain Ember Import Statements
+
+CONTENTS
+
+    1. Intro ...................... |EmberImportsIntro|
+    2. Command .................... |:Emimport|
+    3. Mapping .................... |EmberImportsMapping|
+    4. Configuration .............. |EmberImportsConfig|
+    5. License .................... |EmberImportsLicense|
+    6. Contributing ............... |EmberImportsContributing|
+
+==============================================================================
+1. Intro                                                   *EmberImportsIntro*
+
+Keep your import statements in sync with your code but appending or updating
+statements with Ember keywords.
+
+The intended audience for this are Ember developers who use Vim and want to
+automate the look up process when it comes to Ember's large set of import
+statements. Since the Great Module Unification the API is no longer stemmed off
+a single global but instead imported through module namespaces. This make the
+code easier to reason about and makes it easier for tools to parse.
+Unfortunately it also means memorizing a lot of extra boilerplate.
+
+With this plugin Vim will update the import list for you. By looking up the
+import statement for the keyword under the cursor and either adding it or
+updating the current one to have the new keyword.
+
+The list was manually copied from https://emberjs.com/api/ember/3.0.0
+
+==============================================================================
+2. :Emimport                                                       *:Emimport*
+
+Import statements can be added/updated via a command. The first argument is the
+Ember keyword you wish to add. It has auto completion for all the know Ember
+keywords. If you leave the keyword blank it will take the word under the
+cursor.
+
+Usage:
+    >
+    :Emimport [KEYWORD]
+<
+Examples:
+    >
+    :Emimport
+<
+    Will lookup the keyword under the cursor and add/update the import
+    statement list at the top of the file.
+    >
+    :Emimport Component
+<
+    Will add this if it doesn't already exist:
+
+        import Component from '@ember/component';
+
+==============================================================================
+3. Mapping                                               *EmberImportsMapping*
+
+For convenience a mapping can be used to grab the keyword under the cursor and
+execute the |:Emimport| command for you.
+
+By default this is "<Leader>e". The map can be adjusted or disabled. See
+|EmberImportsConfig| for more on this.
+
+==============================================================================
+4. Configuration                                          *EmberImportsConfig*
+
+Mapping
+    You can set the map that triggers the imports plugin.
+    >
+    let g:vim_ember_imports_map = '<Leader>e'
+<
+    To disable set to 0.
+    >
+    let g:vim_ember_imports_map = 0
+<
+Disable Semicolons
+    You can disable the use of semicolons by setting this to 0. (Default 1)
+    >
+    let g:vim_ember_imports_use_semicolons = 0
+<
+Definition Wrapping
+    To make code easier to read this plugin will break long a import statement
+    across multiple lines. Long lines are defined by how many destructuring
+    variables there are and how long the line is.
+
+    For example by default if you have more then 3 variables defined it will
+    reformat the line like so:
+
+        import DefaultVar, {
+          var1,
+          var2,
+          var3,
+          var4
+        } from 'foobar';
+
+    This number can be adjusted (0 to disable):
+    >
+    let g:vim_ember_imports_multiline_max_vars = 3
+<
+    Alternatively if the line has less then that number of variables but still
+    exceeds a maximum column (default: 80) it can split the line in two.
+
+        import DefaultVar, { var1, var2, var3 }
+          from 'foobar';
+
+    This can be adjusted (0 to disable):
+    >
+    let g:vim_ember_imports_multiline_max_col = 80
+<
+
+==============================================================================
+5. License                                               *EmberImportsLicense*
+
+Released under the MIT License.
+
+==============================================================================
+6. Contributing                                     *EmberImportsContributing*
+
+Contributions are welcomed and appreciated. Just follow the normal Github
+procedure. Go to:
+
+    https://github.com/sukima/vim-ember-imports
+
+Fork the project. Work on what you think would make it better. Send a pull
+request.
