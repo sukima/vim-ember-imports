@@ -59,7 +59,7 @@ And run `:PlugInstall` inside Vim or `vim +PlugInstall +qa` from shell.
 MIT
 
 [pathogen]: https://github.com/tpope/vim-pathogen
-[txt-doc]: https://raw.githubusercontent.com/sukima/vim-ember-imports/master/doc/ember-imports.txt
+[txt-doc]: https://raw.githubusercontent.com/sukima/vim-ember-imports/master/doc/emberimports.txt
 [vpm]: https://github.com/KevinSjoberg/vpm
 [vundle]: https://github.com/gmarik/vundle
 [plug]: https://github.com/junegunn/vim-plug
