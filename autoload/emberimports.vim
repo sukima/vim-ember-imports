@@ -301,7 +301,7 @@ function! s:RenderImport(ast, from)
     let parts = parts + [part]
   endif
   if !empty(destructureParts)
-    let destructureParts = map(sort(destructureParts), 'v:val . ","')
+    let destructureParts = map(sort(uniq(destructureParts)), 'v:val . ","')
     let destructureParts[-1] = substitute(destructureParts[-1], '\v,$', '', '')
     let parts = parts + ['{'] + destructureParts + ['}']
   endif
@@ -385,12 +385,8 @@ function! s:AddOrUpdateEmberImport(token)
     call s:AppendEmberImport(s:FindLastImport(), definition)
   else
     let importPos = s:GetImportLines()
-    if importPos.lines =~# '\v<' . a:token . '>'
-      echo a:token . ' already imported'
-    else
-      execute importPos.start . ',' . importPos.end . ' delete _'
-      call s:UpdateEmberImport(importPos.start - 1, importPos.lines, definition)
-    endif
+    execute importPos.start . ',' . importPos.end . ' delete _'
+    call s:UpdateEmberImport(importPos.start - 1, importPos.lines, definition)
   endif
   call setpos('.', getpos("''"))
 endfunction
