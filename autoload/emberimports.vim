@@ -347,6 +347,9 @@ endfunction
 " AppendEmberImport {{{1
 function! s:AppendEmberImport(pos, definition)
   let importStr = s:RenderImport([a:definition], a:definition.from)
+  if a:pos == 0
+    let importStr = importStr + ['']
+  endif
   call append(a:pos, importStr)
 endfunction
 
