@@ -264,7 +264,9 @@ function! s:ParseImportAST(inputLine)
       if isDefault && foundDefault
         throw 'Redundent default import for ' . token
       endif
-      let foundDefault = v:true
+      if isDefault
+        let foundDefault = v:true
+      endif
       let ast = ast + [{'name': token, 'default': isDefault, 'alias': v:null}]
     endif
   endfor
