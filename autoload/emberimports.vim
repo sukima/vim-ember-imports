@@ -200,6 +200,7 @@ let g:vim_ember_import_definitions = {
       \   'validateErrorHandler': {'default': v:false, 'from': '@ember/test-helpers'},
       \   'task': {'default': v:false, 'from': 'ember-concurrency'},
       \   'timeout': {'default': v:false, 'from': 'ember-concurrency'},
+      \   'didCancel': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForEvent': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForProperty': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForQueue': {'default': v:false, 'from': 'ember-concurrency'},
