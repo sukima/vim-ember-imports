@@ -310,28 +310,30 @@ function! s:RenderImport(ast, from)
   endif
   let semicolon = g:vim_ember_imports_use_semicolons ? ';' : ''
   let parts = parts + ['from', "'" . a:from . "'" . semicolon]
-  let line = join(parts, ' ')
+  let importLine = join(parts, ' ')
   let wrapParts = g:vim_ember_imports_multiline_max_vars > 0 &&
         \ len(destructureParts) > g:vim_ember_imports_multiline_max_vars
   let wrapLine = g:vim_ember_imports_multiline_max_col > 0 &&
-        \ strchars(line) > g:vim_ember_imports_multiline_max_col
+        \ strchars(importLine) > g:vim_ember_imports_multiline_max_col
   if wrapParts
     let sep = s:IndentChars(1)
     let firstBracketIdx = index(parts, '{')
     let lastBracketIdx = index(parts, '}')
-    let line = [join(parts[0:firstBracketIdx], ' ')]
+    let lines = [join(parts[0:firstBracketIdx], ' ')]
     for part in parts[firstBracketIdx+1:lastBracketIdx-1]
-      let line = line + [sep . part]
+      let lines = lines + [sep . part]
     endfor
-    let line = line + [join(parts[lastBracketIdx:], ' ')]
+    let lines = lines + [join(parts[lastBracketIdx:], ' ')]
   elseif wrapLine
     let fromIdx = index(parts, 'from')
-    let line = [
+    let lines = [
           \ join(parts[0:fromIdx-1], ' '),
           \ s:IndentChars(1) . join(parts[fromIdx:])
           \ ]
+  else
+    let lines = [importLine]
   endif
-  return line
+  return lines
 endfunction
 
 " DefinitionForToken {{{1
