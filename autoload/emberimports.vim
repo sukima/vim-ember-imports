@@ -400,9 +400,11 @@ function! s:AddOrUpdateEmberImport(token)
 endfunction
 
 " emberimports#run {{{1
-function! emberimports#run(key)
-  let token = empty(a:key) ? expand('<cword>') : a:key
-  call s:AddOrUpdateEmberImport(token)
+function! emberimports#run(...)
+  let tokens = empty(a:000) ? [expand('<cword>')] : a:000
+  for token in tokens
+    let adjustment = s:AddOrUpdateEmberImport(token)
+  endfor
 endfunction
 
 " emberimports#complete {{{1
