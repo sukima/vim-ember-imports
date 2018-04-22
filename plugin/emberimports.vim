@@ -1,6 +1,6 @@
 " Vim plugin for managing Ember.js import statements
 " Maintainer: Devin Weaver <suki@tritarget.org>
-" Last Change: 2018 Mar 31
+" Last Change: 2018 Apr 22
 
 " Exit quickly when:
 " - this plugin was already loaded
