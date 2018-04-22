@@ -356,6 +356,7 @@ function! s:AppendEmberImport(pos, definition)
     let importStr = importStr + ['']
   endif
   call append(a:pos, importStr)
+  return len(importStr)
 endfunction
 
 " UpdateEmberImport {{{1
@@ -363,6 +364,7 @@ function! s:UpdateEmberImport(pos, lines, definition)
   let ast = s:ParseImportAST(a:lines) + [a:definition]
   let importStr = s:RenderImport(ast, a:definition.from)
   call append(a:pos, importStr)
+  return len(importStr)
 endfunction
 
 " FindLastImport {{{1
@@ -386,17 +388,21 @@ endfunction
 
 " AddOrUpdateEmberImport {{{1
 function! s:AddOrUpdateEmberImport(token)
+  let prevpos = getcurpos()
   let definition = s:DefinitionForToken(a:token)
-  call setpos("''", getcurpos())
-  let loc = search('\vfrom\s[''"]' . escape(definition.from, '-/@') . '[''"]', 'bcwz')
+  let loc = search('\vfrom\s[''"]' . escape(definition.from, '_.-/@') . '[''"]', 'bcwz')
   if loc == 0
-    call s:AppendEmberImport(s:FindLastImport(), definition)
+    let adjustment = s:AppendEmberImport(s:FindLastImport(), definition)
   else
     let importPos = s:GetImportLines()
     execute importPos.start . ',' . importPos.end . ' delete _'
-    call s:UpdateEmberImport(importPos.start - 1, importPos.lines, definition)
+    let adjustment = s:UpdateEmberImport(importPos.start - 1, importPos.lines, definition)
+    let adjustment = adjustment - (importPos.end - importPos.start) - 1
   endif
-  call setpos('.', getpos("''"))
+  let curpos = getcurpos()
+  let prevpos[1] = prevpos[1] + adjustment
+  call setpos('.', prevpos)
+  call setpos("''", curpos)
 endfunction
 
 " emberimports#run {{{1
