@@ -204,6 +204,18 @@ let g:vim_ember_import_definitions = {
       \   'waitForEvent': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForProperty': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForQueue': {'default': v:false, 'from': 'ember-concurrency'},
+      \   'Model': {'default': v:true, 'from': 'ember-data/model'},
+      \   'Adapter': {'default': v:true, 'from': 'ember-data/adapter'},
+      \   'RESTAdapter': {'default': v:true, 'from': 'ember-data/adapters/rest'},
+      \   'JSONAPIAdapter': {'default': v:true, 'from': 'ember-data/adapters/json-api'},
+      \   'JSONSerializer': {'default': v:true, 'from': 'ember-data/serializers/json'},
+      \   'RESTSerializer': {'default': v:true, 'from': 'ember-data/serializers/rest'},
+      \   'JSONAPISerializer': {'default': v:true, 'from': 'ember-data/serializers/json-api'},
+      \   'Store': {'default': v:true, 'from': 'ember-data/model'},
+      \   'Transform': {'default': v:true, 'from': 'ember-data/model'},
+      \   'attr': {'default': v:true, 'from': 'ember-data/model'},
+      \   'hasMany': {'default': v:false, 'from': 'ember-data/relationships'},
+      \   'belongsTo': {'default': v:false, 'from': 'ember-data/relationships'},
       \ }
 
 " ParseImportAST {{{1
