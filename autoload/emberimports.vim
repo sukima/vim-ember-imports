@@ -423,6 +423,10 @@ function! emberimports#run(...)
   for token in tokens
     let adjustment = s:AddOrUpdateEmberImport(token)
   endfor
+
+  if exists("*EmberImportSort")
+    call EmberImportSort()
+  endif
 endfunction
 
 " emberimports#complete {{{1
