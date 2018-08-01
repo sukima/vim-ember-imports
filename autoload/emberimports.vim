@@ -211,9 +211,9 @@ let g:vim_ember_import_definitions = {
       \   'JSONSerializer': {'default': v:true, 'from': 'ember-data/serializers/json'},
       \   'RESTSerializer': {'default': v:true, 'from': 'ember-data/serializers/rest'},
       \   'JSONAPISerializer': {'default': v:true, 'from': 'ember-data/serializers/json-api'},
-      \   'Store': {'default': v:true, 'from': 'ember-data/model'},
-      \   'Transform': {'default': v:true, 'from': 'ember-data/model'},
-      \   'attr': {'default': v:true, 'from': 'ember-data/model'},
+      \   'Store': {'default': v:true, 'from': 'ember-data/store'},
+      \   'Transform': {'default': v:true, 'from': 'ember-data/transform'},
+      \   'attr': {'default': v:true, 'from': 'ember-data/attr'},
       \   'hasMany': {'default': v:false, 'from': 'ember-data/relationships'},
       \   'belongsTo': {'default': v:false, 'from': 'ember-data/relationships'},
       \ }
