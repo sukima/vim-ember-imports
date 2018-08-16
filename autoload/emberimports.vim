@@ -199,6 +199,7 @@ let g:vim_ember_import_definitions = {
       \   'teardownApplicationContext': {'default': v:false, 'from': '@ember/test-helpers'},
       \   'validateErrorHandler': {'default': v:false, 'from': '@ember/test-helpers'},
       \   'task': {'default': v:false, 'from': 'ember-concurrency'},
+      \   'taskGroup': {'default': v:false, 'from': 'ember-concurrency'},
       \   'timeout': {'default': v:false, 'from': 'ember-concurrency'},
       \   'didCancel': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForEvent': {'default': v:false, 'from': 'ember-concurrency'},
