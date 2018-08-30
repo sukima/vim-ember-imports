@@ -122,6 +122,7 @@ let g:vim_ember_import_definitions = {
       \   'classify': {'default': v:false, 'from': '@ember/string'},
       \   'dasherize': {'default': v:false, 'from': '@ember/string'},
       \   'decamelize': {'default': v:false, 'from': '@ember/string'},
+      \   'htmlSafe': {'default': v:false, 'from': '@ember/string'},
       \   'loc': {'default': v:false, 'from': '@ember/string'},
       \   'underscore': {'default': v:false, 'from': '@ember/string'},
       \   'w': {'default': v:false, 'from': '@ember/string'},
