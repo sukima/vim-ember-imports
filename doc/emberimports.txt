@@ -108,9 +108,14 @@ Definition Wrapping
     >
     let g:vim_ember_imports_multiline_max_col = 80
 <
-
+Module Unification for Ember Data
+   If you prefer the newer ember-data modules (2.3+) and wish to use them set
+   this (default disabled):
+   >
+   let g:ember_imports_ember_data_next = 1
+<
 Import Sorting
-   If you  create a function called `EmberImportSort` in your .vimrc it will
+   If you create a function called `EmberImportSort` in your .vimrc it will
    run after the import has been added.
 
    For example this will call into https://github.com/ruanyl/vim-sort-imports

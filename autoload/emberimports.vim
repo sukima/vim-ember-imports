@@ -1,6 +1,6 @@
 " Vim plugin for managing Ember.js import statements
 " Maintainer: Devin Weaver <suki@tritarget.org>
-" Last Change: 2018 Apr 22
+" Last Change: 2018 Sep 20
 
 " Ember Definitions {{{1
 let g:vim_ember_import_definitions = {
@@ -206,6 +206,40 @@ let g:vim_ember_import_definitions = {
       \   'waitForEvent': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForProperty': {'default': v:false, 'from': 'ember-concurrency'},
       \   'waitForQueue': {'default': v:false, 'from': 'ember-concurrency'},
+      \   'Store': {'default': v:false, 'from': 'ember-data'},
+      \   'PromiseArray': {'default': v:false, 'from': 'ember-data'},
+      \   'PromiseObject': {'default': v:false, 'from': 'ember-data'},
+      \   'PromiseManyArray': {'default': v:false, 'from': 'ember-data'},
+      \   'Model': {'default': v:false, 'from': 'ember-data'},
+      \   'attr': {'default': v:false, 'from': 'ember-data'},
+      \   'Adapter': {'default': v:false, 'from': 'ember-data'},
+      \   'AdapterError': {'default': v:false, 'from': 'ember-data'},
+      \   'InvalidError': {'default': v:false, 'from': 'ember-data'},
+      \   'TimeoutError': {'default': v:false, 'from': 'ember-data'},
+      \   'AbortError': {'default': v:false, 'from': 'ember-data'},
+      \   'UnauthorizedError': {'default': v:false, 'from': 'ember-data'},
+      \   'ForbiddenError': {'default': v:false, 'from': 'ember-data'},
+      \   'NotFoundError': {'default': v:false, 'from': 'ember-data'},
+      \   'ConflictError': {'default': v:false, 'from': 'ember-data'},
+      \   'ServerError': {'default': v:false, 'from': 'ember-data'},
+      \   'Serializer': {'default': v:false, 'from': 'ember-data'},
+      \   'RESTAdapter': {'default': v:false, 'from': 'ember-data'},
+      \   'RESTSerializer': {'default': v:false, 'from': 'ember-data'},
+      \   'JSONSerializer': {'default': v:false, 'from': 'ember-data'},
+      \   'JSONAPIAdapter': {'default': v:false, 'from': 'ember-data'},
+      \   'JSONAPISerializer': {'default': v:false, 'from': 'ember-data'},
+      \   'Transform': {'default': v:false, 'from': 'ember-data'},
+      \   'DateTransform': {'default': v:false, 'from': 'ember-data'},
+      \   'StringTransform': {'default': v:false, 'from': 'ember-data'},
+      \   'NumberTransform': {'default': v:false, 'from': 'ember-data'},
+      \   'BooleanTransform': {'default': v:false, 'from': 'ember-data'},
+      \   'belongsTo': {'default': v:false, 'from': 'ember-data'},
+      \   'hasMany': {'default': v:false, 'from': 'ember-data'},
+      \   'Relationship': {'default': v:false, 'from': 'ember-data'},
+      \ }
+
+if exists("g:ember_imports_ember_data_next")
+  call extend(g:vim_ember_import_definitions, {
       \   'Model': {'default': v:true, 'from': 'ember-data/model'},
       \   'Adapter': {'default': v:true, 'from': 'ember-data/adapter'},
       \   'RESTAdapter': {'default': v:true, 'from': 'ember-data/adapters/rest'},
@@ -218,7 +252,8 @@ let g:vim_ember_import_definitions = {
       \   'attr': {'default': v:true, 'from': 'ember-data/attr'},
       \   'hasMany': {'default': v:false, 'from': 'ember-data/relationships'},
       \   'belongsTo': {'default': v:false, 'from': 'ember-data/relationships'},
-      \ }
+      \ })
+endif
 
 " ParseImportAST {{{1
 function! s:ParseImportAST(inputLine)
