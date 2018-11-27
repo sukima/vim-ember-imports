@@ -236,6 +236,7 @@ let g:vim_ember_import_definitions = {
       \   'belongsTo': {'default': v:false, 'from': 'ember-data'},
       \   'hasMany': {'default': v:false, 'from': 'ember-data'},
       \   'Relationship': {'default': v:false, 'from': 'ember-data'},
+      \   'hbs': {'default': v:true, 'from': 'htmlbars-inline-precompile'},
       \ }
 
 if exists("g:ember_imports_ember_data_next")
