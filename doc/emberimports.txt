@@ -3,11 +3,9 @@
 CONTENTS
 
     1. Intro ...................... |EmberImportsIntro|
-    2. Command .................... |:Emimport|
-    3. Mapping .................... |EmberImportsMapping|
-    4. Configuration .............. |EmberImportsConfig|
-    5. License .................... |EmberImportsLicense|
-    6. Contributing ............... |EmberImportsContributing|
+    2. Configuration .............. |EmberImportsConfig|
+    3. License .................... |EmberImportsLicense|
+    4. Contributing ............... |EmberImportsContributing|
 
 ==============================================================================
 1. Intro                                                   *EmberImportsIntro*
@@ -28,111 +26,28 @@ updating the current one to have the new keyword.
 
 The list was manually copied from https://emberjs.com/api/ember/3.0.0
 
-==============================================================================
-2. :Emimport                                                       *:Emimport*
+This plugin depends on the vim-javascript-imports plugin which is available at
+https://github.com/sukima/vim-javascript-imports
 
-Import statements can be added/updated via a command. The first argument is the
-Ember keyword you wish to add. It has auto completion for all the know Ember
-keywords. If you leave the keyword blank it will take the word under the
-cursor.
-
-Usage:
-    >
-    :Emimport [KEYWORD]
-<
-Examples:
-    >
-    :Emimport
-<
-    Will lookup the keyword under the cursor and add/update the import
-    statement list at the top of the file.
-    >
-    :Emimport Component
-<
-    Will add this if it doesn't already exist:
-
-        import Component from '@ember/component';
+You can learn how to use this plugin in the |vim-javascript-imports.txt| help.
 
 ==============================================================================
-3. Mapping                                               *EmberImportsMapping*
+2. Configuration                                          *EmberImportsConfig*
 
-For convenience a mapping can be used to grab the keyword under the cursor and
-execute the |:Emimport| command for you.
-
-By default this is "<Leader>e". The map can be adjusted or disabled. See
-|EmberImportsConfig| for more on this.
-
-==============================================================================
-4. Configuration                                          *EmberImportsConfig*
-
-Mapping
-    You can set the map that triggers the imports plugin.
-    >
-    let g:vim_ember_imports_map = '<Leader>e'
-<
-    To disable set to 0.
-    >
-    let g:vim_ember_imports_map = 0
-<
-Disable Semicolons
-    You can disable the use of semicolons by setting this to 0. (Default 1)
-    >
-    let g:vim_ember_imports_use_semicolons = 0
-<
-Definition Wrapping
-    To make code easier to read this plugin will break long a import statement
-    across multiple lines. Long lines are defined by how many destructuring
-    variables there are and how long the line is.
-
-    For example by default if you have more then 3 variables defined it will
-    reformat the line like so:
-
-        import DefaultVar, {
-          var1,
-          var2,
-          var3,
-          var4
-        } from 'foobar';
-
-    This number can be adjusted (0 to disable):
-    >
-    let g:vim_ember_imports_multiline_max_vars = 3
-<
-    Alternatively if the line has less then that number of variables but still
-    exceeds a maximum column (default: 80) it can split the line in two.
-
-        import DefaultVar, { var1, var2, var3 }
-          from 'foobar';
-
-    This can be adjusted (0 to disable):
-    >
-    let g:vim_ember_imports_multiline_max_col = 80
-<
 Module Unification for Ember Data
    If you prefer the newer ember-data modules (2.3+) and wish to use them set
    this (default disabled):
    >
    let g:ember_imports_ember_data_next = 1
 <
-Import Sorting
-   If you create a function called `EmberImportSort` in your .vimrc it will
-   run after the import has been added.
-
-   For example this will call into https://github.com/ruanyl/vim-sort-imports
-   >
-   function EmberImportSort()
-       silent exec "w"
-       call import_sort#run()
-   endfunction
-<
 
 ==============================================================================
-5. License                                               *EmberImportsLicense*
+3. License                                               *EmberImportsLicense*
 
 Released under the MIT License.
 
 ==============================================================================
-6. Contributing                                     *EmberImportsContributing*
+4. Contributing                                     *EmberImportsContributing*
 
 Contributions are welcomed and appreciated. Just follow the normal Github
 procedure. Go to:

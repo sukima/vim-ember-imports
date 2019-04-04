@@ -11,6 +11,9 @@ and it can wrap long lines oh and it sorts the variables too.
 
 ![animated screen shot](https://sukima.github.io/vim-ember-imports/vim-ember-imports.gif)
 
+**This plugin is dependent on [vim-javascript-imports](https://github.com/sukima/vim-javascript-imports)**
+You must install that plugin before using this one.
+
 ## Commands, Mappings and Configuration
 
 Read the [help][txt-doc] to know more.
@@ -22,6 +25,7 @@ Read the [help][txt-doc] to know more.
 Just add this line to your `~/.vimrc`:
 
 ```vim
+Plugin 'sukima/vim-javascript-imports'
 Plugin 'sukima/vim-ember-imports'
 ```
 
@@ -33,6 +37,7 @@ Copy and paste in your shell:
 
 ```bash
 cd ~/.vim/bundle
+git clone https://github.com/sukima/vim-javascript-imports.git
 git clone https://github.com/sukima/vim-ember-imports.git
 ```
 
@@ -41,6 +46,7 @@ git clone https://github.com/sukima/vim-ember-imports.git
 Run this command in your shell:
 
 ```bash
+vpm insert sukima/vim-javascript-imports
 vpm insert sukima/vim-ember-imports
 ```
 
@@ -49,6 +55,7 @@ vpm insert sukima/vim-ember-imports
 Just add this line to your `~/.vimrc` inside plug call:
 
 ```vim
+Plug 'sukima/vim-javascript-imports'
 Plug 'sukima/vim-ember-imports'
 ```
 
