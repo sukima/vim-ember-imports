@@ -247,6 +247,8 @@ call JSAddImportDefinition({'name': 'belongsTo', 'default': 0, 'from': 'ember-da
 call JSAddImportDefinition({'name': 'hasMany', 'default': 0, 'from': 'ember-data'})
 call JSAddImportDefinition({'name': 'Relationship', 'default': 0, 'from': 'ember-data'})
 call JSAddImportDefinition({'name': 'hbs', 'default': 1, 'from': 'htmlbars-inline-precompile'})
+call JSAddImportDefinition({'name': 'singularize', 'default': 0, 'from': 'ember-inflector'})
+call JSAddImportDefinition({'name': 'pluralize', 'default': 0, 'from': 'ember-inflector'})
 
 if exists("g:ember_imports_ember_data_next")
   call JSAddImportDefinition({'name': 'Model', 'default': 1, 'from': 'ember-data/model'})
