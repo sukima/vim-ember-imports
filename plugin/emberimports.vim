@@ -54,6 +54,7 @@ call JSAddImportDefinition({'name': 'ObjectProxy', 'default': 1, 'from': '@ember
 call JSAddImportDefinition({'name': 'Observable', 'default': 1, 'from': '@ember/object/observable'})
 call JSAddImportDefinition({'name': 'PromiseProxyMixin', 'default': 1, 'from': '@ember/object/promise-proxy-mixin'})
 call JSAddImportDefinition({'name': 'aliasMethod', 'default': 0, 'from': '@ember/object'})
+call JSAddImportDefinition({'name': 'action', 'default': 0, 'from': '@ember/object'})
 call JSAddImportDefinition({'name': 'computed', 'default': 0, 'from': '@ember/object'})
 call JSAddImportDefinition({'name': 'expandProperties', 'default': 0, 'from': '@ember/object/computed'})
 call JSAddImportDefinition({'name': 'get', 'default': 0, 'from': '@ember/object'})
