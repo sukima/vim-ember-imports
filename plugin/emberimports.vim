@@ -252,6 +252,7 @@ call JSAddImportDefinition({'name': 'hbs', 'default': 1, 'from': 'htmlbars-inlin
 call JSAddImportDefinition({'name': 'singularize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'pluralize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'tracked', 'default': 0, 'from': '@glimmer/tracking'})
+call JSAddImportDefinition({'name': 'GlimmerComponent', 'default': 0, 'from': '@glimmer/component'})
 
 if exists("g:ember_imports_ember_data_next")
   call JSAddImportDefinition({'name': 'Model', 'default': 1, 'from': 'ember-data/model'})
