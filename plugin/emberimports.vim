@@ -1,6 +1,6 @@
 " Vim plugin for managing Ember.js import statements
 " Maintainer: Devin Weaver <suki@tritarget.org>
-" Last Change: 2020 Oct 02
+" Last Change: 2020 Oct 08
 
 " Exit quickly when:
 " - this plugin was already loaded
@@ -248,7 +248,7 @@ call JSAddImportDefinition({'name': 'BooleanTransform', 'default': 0, 'from': 'e
 call JSAddImportDefinition({'name': 'belongsTo', 'default': 0, 'from': 'ember-data'})
 call JSAddImportDefinition({'name': 'hasMany', 'default': 0, 'from': 'ember-data'})
 call JSAddImportDefinition({'name': 'Relationship', 'default': 0, 'from': 'ember-data'})
-call JSAddImportDefinition({'name': 'hbs', 'default': 1, 'from': 'ember-cli-htmlbars'})
+call JSAddImportDefinition({'name': 'hbs', 'default': 0, 'from': 'ember-cli-htmlbars'})
 call JSAddImportDefinition({'name': 'singularize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'pluralize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'tracked', 'default': 0, 'from': '@glimmer/tracking'})
