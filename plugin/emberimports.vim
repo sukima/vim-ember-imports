@@ -26,7 +26,7 @@ call JSAddImportDefinition({'name': 'EmberArray', 'default': 1, 'from': '@ember/
 call JSAddImportDefinition({'name': 'MutableArray', 'default': 1, 'from': '@ember/array/mutable'})
 call JSAddImportDefinition({'name': 'A', 'default': 0, 'from': '@ember/array'})
 call JSAddImportDefinition({'name': 'isArray', 'default': 0, 'from': '@ember/array'})
-call JSAddImportDefinition({'name': 'Component', 'default': 1, 'from': '@ember/component'})
+call JSAddImportDefinition({'name': 'Component', 'default': 1, 'from': '@glimmer/component'})
 call JSAddImportDefinition({'name': 'Checkbox', 'default': 1, 'from': '@ember/component/checkbox'})
 call JSAddImportDefinition({'name': 'Helper', 'default': 1, 'from': '@ember/component/helper'})
 call JSAddImportDefinition({'name': 'TextArea', 'default': 1, 'from': '@ember/component/text-area'})
@@ -252,7 +252,18 @@ call JSAddImportDefinition({'name': 'hbs', 'default': 0, 'from': 'ember-cli-html
 call JSAddImportDefinition({'name': 'singularize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'pluralize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'tracked', 'default': 0, 'from': '@glimmer/tracking'})
-call JSAddImportDefinition({'name': 'GlimmerComponent', 'default': 0, 'from': '@glimmer/component'})
+call JSAddImportDefinition({'name': 'EmberComponent', 'default': 0, 'from': '@ember/component'})
+
+" GJS/GTS
+call JSAddImportDefinition({'name': 'array', 'default': 0, 'from': '@ember/helper'})
+call JSAddImportDefinition({'name': 'concat', 'default': 0, 'from': '@ember/helper'})
+call JSAddImportDefinition({'name': 'fn', 'default': 0, 'from': '@ember/helper'})
+call JSAddImportDefinition({'name': 'get', 'default': 0, 'from': '@ember/helper'})
+call JSAddImportDefinition({'name': 'hash', 'default': 0, 'from': '@ember/helper'})
+call JSAddImportDefinition({'name': 'on', 'default': 0, 'from': '@ember/modifier'})
+call JSAddImportDefinition({'name': 'Input', 'default': 0, 'from': '@ember/component'})
+call JSAddImportDefinition({'name': 'LinkTo', 'default': 0, 'from': '@ember/routing'})
+call JSAddImportDefinition({'name': 'Textarea', 'default': 0, 'from': '@ember/component'})
 
 if exists("g:ember_imports_ember_data_next")
   call JSAddImportDefinition({'name': 'Model', 'default': 1, 'from': 'ember-data/model'})
