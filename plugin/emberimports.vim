@@ -264,6 +264,7 @@ call JSAddImportDefinition({'name': 'on', 'default': 0, 'from': '@ember/modifier
 call JSAddImportDefinition({'name': 'Input', 'default': 0, 'from': '@ember/component'})
 call JSAddImportDefinition({'name': 'LinkTo', 'default': 0, 'from': '@ember/routing'})
 call JSAddImportDefinition({'name': 'Textarea', 'default': 0, 'from': '@ember/component'})
+call JSAddImportDefinition({'name': 'templateOnlyComponent', 'default': 1, 'from': '@ember/component/template-only'})
 
 if exists("g:ember_imports_ember_data_next")
   call JSAddImportDefinition({'name': 'Model', 'default': 1, 'from': 'ember-data/model'})
