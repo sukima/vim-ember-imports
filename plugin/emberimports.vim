@@ -127,7 +127,7 @@ call JSAddImportDefinition({'name': 'schedule', 'default': 0, 'from': '@ember/ru
 call JSAddImportDefinition({'name': 'scheduleOnce', 'default': 0, 'from': '@ember/runloop'})
 call JSAddImportDefinition({'name': 'throttle', 'default': 0, 'from': '@ember/runloop'})
 call JSAddImportDefinition({'name': 'Service', 'default': 1, 'from': '@ember/service'})
-call JSAddImportDefinition({'name': 'service', 'default': 0, 'from': '@ember/service', 'aliased': 'inject'})
+call JSAddImportDefinition({'name': 'service', 'default': 0, 'from': '@ember/service'})
 call JSAddImportDefinition({'name': 'camelize', 'default': 0, 'from': '@ember/string'})
 call JSAddImportDefinition({'name': 'capitalize', 'default': 0, 'from': '@ember/string'})
 call JSAddImportDefinition({'name': 'classify', 'default': 0, 'from': '@ember/string'})
