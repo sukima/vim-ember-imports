@@ -252,6 +252,7 @@ call JSAddImportDefinition({'name': 'hbs', 'default': 0, 'from': 'ember-cli-html
 call JSAddImportDefinition({'name': 'singularize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'pluralize', 'default': 0, 'from': 'ember-inflector'})
 call JSAddImportDefinition({'name': 'tracked', 'default': 0, 'from': '@glimmer/tracking'})
+call JSAddImportDefinition({'name': 'cached', 'default': 0, 'from': '@glimmer/tracking'})
 call JSAddImportDefinition({'name': 'EmberComponent', 'default': 0, 'from': '@ember/component'})
 
 " GJS/GTS
